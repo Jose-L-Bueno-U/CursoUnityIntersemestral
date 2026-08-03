@@ -7,15 +7,6 @@
             "id": "8faa4239-213d-482f-ba24-3bbe4d97fe21",
             "actions": [
                 {
-                    "name": "New action",
-                    "type": "Button",
-                    "id": "f0ed64ec-ee86-44c5-9da1-7e242fa88a3e",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Move",
                     "type": "Value",
                     "id": "c4f6101c-0627-47be-9820-80b332aa12f3",
@@ -23,20 +14,27 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Correr",
+                    "type": "Button",
+                    "id": "9f2fbb87-1d43-4bca-b3cd-318d6ed6c82a",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Shoot",
+                    "type": "Button",
+                    "id": "8d9b6045-68fd-4aff-b454-f0248f120118",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "118cc481-4209-4e2b-a45e-32dce94ee0ce",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "New action",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "2D Vector",
                     "id": "9841eaa2-1a50-404a-be1b-3b05d2ccded1",
@@ -91,6 +89,28 @@
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "d4be3949-3a97-4fe1-89cd-e6d0334d3c97",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Correr",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "28190717-6f7d-4813-a43b-8a4010918a0e",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
