@@ -24,7 +24,20 @@ public class BulletBehaviour : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.tag.Equals("Enemy") && !_collider2D.tag.Equals("Enemy"))
         {
+            EnemyHealth health = collision.GetComponent<EnemyHealth>();
+
+            if (health != null)
+            {
+                health.TakeDamage();
+            }
+
             Destroy(gameObject);
         }
+
+        if (collision.tag.Equals("EnemyStop"))
+        {
+            Destroy(gameObject);
+        }
+
     }
 }
