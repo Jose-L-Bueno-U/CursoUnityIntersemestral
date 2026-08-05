@@ -18,11 +18,13 @@ public class PlayerControl : MonoBehaviour
 
     private Rigidbody2D _rigidbody2D;
     private PlayerInput _playerInput;
+    private Animator _animator;
 
     private void Awake() 
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _playerInput = GetComponent<PlayerInput>();
+        _animator = GetComponent<Animator>();
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -44,6 +46,9 @@ public class PlayerControl : MonoBehaviour
             Shoot();
             _shootTimer = 0;
         }
+
+        //Animacion
+        _animator.SetFloat("xMovement", _input.x);
     }
 
     private void FixedUpdate() 
