@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5984263032045850053}
   m_Layer: 0
   m_Name: EnemyBullet
-  m_TagString: Enemy
+  m_TagString: BulletEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -105,7 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07423dadc3a53bd41a5a5c360e91d372, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BulletBehaviour
-  _bulletSpeed: -15
+  _bulletSpeed: 15
 --- !u!58 &5984263032045850053
 CircleCollider2D:
   m_ObjectHideFlags: 0

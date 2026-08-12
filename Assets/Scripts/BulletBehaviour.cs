@@ -3,41 +3,58 @@ using UnityEngine;
 public class BulletBehaviour : MonoBehaviour
 {
     [SerializeField] private float _bulletSpeed;
+
     private Collider2D _collider2D;
 
-    private void Awake() 
+    private void Awake()
     {
         _collider2D = GetComponent<Collider2D>();
     }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
     void Update()
     {
-        transform.position += Vector3.up * _bulletSpeed * Time.deltaTime;
+        if (CompareTag("BulletPlayer"))
+            transform.position += Vector3.up * _bulletSpeed * Time.deltaTime;
+        else
+            transform.position += Vector3.down * _bulletSpeed * Time.deltaTime;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.tag.Equals("Enemy") && !_collider2D.tag.Equals("Enemy"))
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        // Bala del jugador
+        if (CompareTag("BulletPlayer"))
         {
-            EnemyHealth health = collision.GetComponent<EnemyHealth>();
-
-            if (health != null)
+            if (collision.CompareTag("Enemy"))
             {
-                health.TakeDamage();
-            }
+                EnemyHealth health = collision.GetComponent<EnemyHealth>();
 
-            Destroy(gameObject);
+                if (health != null)
+                {
+                    health.TakeDamage();
+                }
+
+                Destroy(gameObject);
+            }
         }
 
-        if (collision.tag.Equals("EnemyStop"))
+        else if (CompareTag("BulletEnemy"))
+        {
+            if (collision.CompareTag("Player"))
+            {
+                PlayerHealth player = collision.GetComponent<PlayerHealth>();
+
+                if (player != null)
+                {
+                    player.TakeDamage(1);
+                }
+
+                Destroy(gameObject);
+            }
+        }
+
+        if (collision.CompareTag("EnemyStop"))
         {
             Destroy(gameObject);
         }
-
     }
 }
