@@ -3,6 +3,7 @@ using UnityEngine;
 public class BulletBehaviour : MonoBehaviour
 {
     [SerializeField] private float _bulletSpeed;
+    [SerializeField] private int _bulletDamage = 1;
 
     private Collider2D _collider2D;
 
@@ -11,20 +12,23 @@ public class BulletBehaviour : MonoBehaviour
         _collider2D = GetComponent<Collider2D>();
     }
 
-    void Update()
+    private void Update()
     {
-        if (CompareTag("BulletPlayer"))
+        if (tag.Equals("BulletPlayer"))
+        {
             transform.position += Vector3.up * _bulletSpeed * Time.deltaTime;
+        }
         else
+        {
             transform.position += Vector3.down * _bulletSpeed * Time.deltaTime;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Bala del jugador
-        if (CompareTag("BulletPlayer"))
+        if (tag.Equals("BulletPlayer"))
         {
-            if (collision.CompareTag("Enemy"))
+            if (collision.tag.Equals("Enemy"))
             {
                 EnemyHealth health = collision.GetComponent<EnemyHealth>();
 
@@ -36,23 +40,22 @@ public class BulletBehaviour : MonoBehaviour
                 Destroy(gameObject);
             }
         }
-
-        else if (CompareTag("BulletEnemy"))
+        else if (tag.Equals("BulletEnemy"))
         {
-            if (collision.CompareTag("Player"))
+            if (collision.tag.Equals("Player"))
             {
                 PlayerHealth player = collision.GetComponent<PlayerHealth>();
 
                 if (player != null)
                 {
-                    player.TakeDamage(1);
+                    player.TakeDamage(_bulletDamage);
                 }
 
                 Destroy(gameObject);
             }
         }
 
-        if (collision.CompareTag("EnemyStop"))
+        if (collision.tag.Equals("EnemyStop"))
         {
             Destroy(gameObject);
         }
