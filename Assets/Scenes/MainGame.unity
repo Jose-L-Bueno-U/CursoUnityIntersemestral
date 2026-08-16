@@ -1334,7 +1334,7 @@ MonoBehaviour:
   _normalEnemy: {fileID: 8492204462787926331, guid: fda9bf54fa5ac9e44a90daba6ab64a89, type: 3}
   _bigEnemy: {fileID: 3761330556534422048, guid: aa50bb507b920a74ca5c90f61343775d, type: 3}
   _spawnTime: 1.5
-  _bigEnemyChance: 0.3
+  _bigEnemyChance: 0.25
 --- !u!1 &1421537503
 GameObject:
   m_ObjectHideFlags: 0
